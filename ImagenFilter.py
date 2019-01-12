@@ -1,0 +1,43 @@
+import cv2
+import numpy as np
+
+img = cv2.imread('imgvin.jpg')
+
+px = img[100,100] #BGR Color Plot B = Azul, G = Green, R = Red
+
+print(px)
+
+print(max(px))
+
+# acessing only blue pixel
+
+blue = img[100,100,0]
+print(blue)
+
+width = img.shape[0]
+print(width)
+
+heigth = img.shape[1]
+print(heigth)
+
+
+
+
+for  i in range(width):
+    for j in range(heigth):
+        r = int(img[i][j][2])
+        g = int(img [i][j][1])
+        b = int(img [i][j][0])
+
+        x = (r + g + b)/3
+        img[i][j] = [x,x,x]
+
+
+
+'''for  i in range(width):
+    for j in range(heigth):
+        img[i][j] = [0,0,255]
+'''
+
+cv2.imshow("Face",img)
+cv2.waitKey(0)
